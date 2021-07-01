@@ -13,5 +13,3 @@ for i in nums:
         for k in nums:
             if i<1000 and j<500 and i + j + k == 2020:
                 print('Part2: ' + str(i*j*k))
-
-
