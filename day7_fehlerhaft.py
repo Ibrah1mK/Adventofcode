@@ -18,16 +18,3 @@ for line in data:
             bagscontainsg.append(bag)
 
 print('Part1: ' + str(len(bagscontainsg)))
-
-
-
-
-
-
-
-
-
-
-
-
-
