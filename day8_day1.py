@@ -27,8 +27,3 @@ while line not in instructions:
         else: line += 1
 
 print('Part1: ' + str(acc))
-
-
-
-
-
