@@ -1,6 +1,6 @@
 #part1
 
-with open("items3") as u:
+with open("data3") as u:
     list = u.readlines()
     list = [line.strip() for line in list]
 
@@ -15,7 +15,7 @@ while row+1 < len(list):
     if space == '#':
         counttrees += 1
 
-print(counttrees)
+print('Part1: ' + str(counttrees))
 
 #part2
 slopes = [(1,1), (3,1), (5,1), (7,1), (1,2)]
@@ -36,5 +36,5 @@ for slope in slopes:
 
     total *= counttrees
 
-print(total)
+print('Part2: ' + str(total))
 

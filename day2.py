@@ -1,44 +1,52 @@
-import csv
+with open("data2") as file:
+    data = file.readlines()
+    data = [line.strip() for line in data]
 
-#part1
-with open('passwords.csv') as data:
-    reader = csv.reader(data, delimiter=' ')
+data = list(data)
 
-    validCount = 0
-    for row in reader:
-        quota, letter, pw = row[0], row[1][0], row[2]
+valid = 0
+for row in data:
+    key, password = row.split(': ')
+    i = key.index('-')
+    intervall, char = key.split(' ')
+    lowest = int(intervall[:i])
+    highest = int(intervall[i+1:])
 
-        i = quota.index('-')
-        lower = int(quota[:i])
-        upper = int(quota[i+1:])
+    count= 0
+    for p in password:
 
-        count = 0
-        for char in pw:
-            if char == letter:
-                count += 1
+        if char == p:
+            count += 1
 
-        if count >= lower and count <= upper:
-            validCount += 1
+    if lowest <= count <= highest:
+        valid += 1
 
-print(validCount)
+print('Part1: ' + str(valid))
 
 #part2
-with open('passwords.csv') as data:
-    reader = csv.reader(data, delimiter=' ')
 
-    validCount = 0
-    for row in reader:
-        quota, letter, pw = row[0], row[1][0], row[2]
+valid = 0
+for row in data:
+    key, password = row.split(': ')
+    i = key.index('-')
+    intervall, char = key.split(' ')
+    pos1 = int(intervall[:i])
+    pos2 = int(intervall[i+1:])
 
-        i = quota.index('-')
-        lower = int(quota[:i])
-        upper = int(quota[i+1:])
+    first = password[pos1-1] == char
+    second = password[pos2-1] == char
 
-        count = 0
-        first = pw[lower-1] == letter
-        last = pw[upper-1] == letter
+    if (first and not second) or (second and not first):
+        valid += 1
 
-        if (first and not last) or (last and not first):
-            validCount += 1
+print('Part2: ' + str(valid))
 
-print(validCount)
+
+
+
+
+
+
+
+
+
