@@ -40,13 +40,3 @@ for row in data:
         valid += 1
 
 print('Part2: ' + str(valid))
-
-
-
-
-
-
-
-
-
-
