@@ -42,5 +42,3 @@ for group in groups:
             sum2 += 1
 
 print('Part2: ' + str(sum2))
-
-
